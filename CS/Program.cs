@@ -17,19 +17,15 @@ namespace CS
             b = tmp;
         }        
 
-        public static void bubblesort(T[] data){
+        public static T[] bubblesort(T[] data){
             // foreach(T d in data){
             //     Console.WriteLine("d: " + d);
             // }
 
-            bool sort_flag = true;
-
-                    // T a = data[2], b = data[1];
-                    // Console.WriteLine(System.Collections.Generic.Comparer<T>.Default.Compare(a,b));
-
-            for(int j = 0; j < (20 - 1); j++)
-             {
-                for(int i = 0; i < (10 - 1); i++){
+            while(true)            
+            {
+                bool sort_flag = true;
+                for(int i = 0; i < (data.Length - 1); i++){
                     // Console.WriteLine(System.Collections.Generic.Comparer<T>.Default.Compare(data[i],data[i+1]));
                     int c = System.Collections.Generic.Comparer<T>.Default.Compare(data[i],data[i+1]);
                     if(c > 0) {
@@ -38,14 +34,15 @@ namespace CS
                         // i = 0;
                     }
                 }
-                Console.WriteLine(sort_flag);
+                // Console.WriteLine(sort_flag);
                 if (sort_flag == true) break;
             }
 
-            foreach(T d in data){
-                Console.WriteLine(d);
-            }
+            // foreach(T d in data){
+            //     Console.WriteLine(d);
+            // }
             
+            return data;
 
         }
 
@@ -63,8 +60,13 @@ namespace CS
             Utility<int>.swap(2, 4);
             
 
-            int[] data = {1,2,3,4,9,8,7,6,0,5};
-            Utility<int>.bubblesort(data);            
+            // int[] data = {1,2,3,4,9,8,7,6,0,5};
+            int[] data = {15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0};
+            int[] newdata = Utility<int>.bubblesort(data);            
+
+            foreach(int d in newdata){
+                Console.Write(d + " ");
+            }
         }
     }
 }
